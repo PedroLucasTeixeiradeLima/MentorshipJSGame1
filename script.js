@@ -1,24 +1,32 @@
 let pointer = document.getElementById("point");
 
+const modifier = 0.5;
+let verticalPosition = 5;
+let horizontalPosition = 5;
+pointer.style.top = `${verticalPosition}vh`;
+pointer.style.left = `${horizontalPosition}vw`;
+
 document.addEventListener(
   "keydown",
   (event) => {
     var name = event.key;
     var code = event.code;
-    // Alert the key name and key code on keydown
-    // console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
     switch (code) {
       case "ArrowUp":
-        console.log("Cima");
+        verticalPosition -= modifier;
+        pointer.style.top = `${verticalPosition}vh`;
         break;
       case "ArrowDown":
-        console.log("Baixo");
+        verticalPosition += modifier;
+        pointer.style.top = `${verticalPosition}vh`;
         break;
       case "ArrowLeft":
-        console.log("Esquerda");
+        horizontalPosition -= modifier;
+        pointer.style.left = `${horizontalPosition}vw`;
         break;
       case "ArrowRight":
-        console.log("Direita");
+        horizontalPosition += modifier;
+        pointer.style.left = `${horizontalPosition}vw`;
         break;
     }
   },
